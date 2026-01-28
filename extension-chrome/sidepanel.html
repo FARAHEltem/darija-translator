@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Darija Translator</title>
+  <link rel="stylesheet" href="sidepanel.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🇲🇦 Darija Translator</h1>
+      <p class="subtitle">English → Moroccan Arabic</p>
+    </div>
+
+    <!-- Section d'entrée vocale -->
+    <div class="voice-section">
+      <button id="voiceInputBtn" class="btn btn-voice">
+        🎤 <span id="voiceStatus">Speak in English</span>
+      </button>
+      <div id="voiceIndicator" class="voice-indicator hidden">
+        <div class="pulse"></div>
+        <span>Listening...</span>
+      </div>
+    </div>
+
+    <!-- Section de texte -->
+    <div class="input-section">
+      <label for="englishText">English Text:</label>
+      <textarea id="englishText" rows="6" placeholder="Type, paste, or speak English text here..."></textarea>
+      
+      <div class="button-group">
+        <button id="getSelectionBtn" class="btn btn-secondary">
+          📋 Get Selected Text
+        </button>
+        <button id="clearBtn" class="btn btn-secondary">
+          🗑️ Clear
+        </button>
+      </div>
+    </div>
+
+    <!-- Bouton de traduction -->
+    <button id="translateBtn" class="btn btn-primary">
+      🔄 Translate to Darija
+    </button>
+
+    <!-- Loader -->
+    <div id="loader" class="loader hidden">
+      <div class="spinner"></div>
+      <p>Translating...</p>
+    </div>
+
+    <!-- Résultat -->
+    <div id="result" class="result hidden">
+      <h3>Translation:</h3>
+      <div id="darijaText" class="darija-text"></div>
+      
+      <!-- Boutons d'action -->
+      <div class="button-group">
+        <button id="copyBtn" class="btn btn-copy">
+          📋 Copy
+        </button>
+        <button id="speakBtn" class="btn btn-speak">
+          🔊 Read Aloud
+        </button>
+        <button id="stopSpeakBtn" class="btn btn-stop hidden">
+          ⏹️ Stop
+        </button>
+      </div>
+    </div>
+
+    <!-- Erreur -->
+    <div id="error" class="error hidden">
+      <h3>❌ Error</h3>
+      <p id="errorMessage"></p>
+    </div>
+
+    <!-- Settings Toggle -->
+    <div class="settings-toggle">
+      <button id="settingsBtn" class="btn btn-link">⚙️ Settings</button>
+    </div>
+
+    <!-- Settings Panel -->
+    <div id="settingsPanel" class="settings-panel hidden">
+      <h4>⚙️ Configuration</h4>
+      
+      <label for="apiUrl">API Endpoint:</label>
+      <input type="text" id="apiUrl" value="http://localhost:8080/DarijaTranslatorService-1.0-SNAPSHOT/api/translator/translate">
+      
+      <label for="username">Username:</label>
+      <input type="text" id="username" value="translator">
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" value="password123">
+      
+      <div class="button-group">
+        <button id="saveSettingsBtn" class="btn btn-secondary">💾 Save</button>
+        <button id="closeSettingsBtn" class="btn btn-secondary">✖️ Close</button>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>💡 Click the microphone to speak, or select text on any webpage</p>
+      <p class="version">v2.0 - Voice-to-Voice Translation</p>
+    </div>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>
